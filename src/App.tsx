@@ -3,6 +3,7 @@ import './App.css';
 import { Box, useColorModeValue } from '@chakra-ui/react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import NavBar, { NavItem } from './components/nav-bar/nav-bar';
+import Home from './components/home/home';
 
 const NAV_ITEMS: NavItem[] = [
     { name: 'Home', uri: '/', id: 0 },
@@ -14,7 +15,7 @@ const NAV_ITEMS: NavItem[] = [
 
 function App(): React.ReactElement {
     return (
-        <Box w='100vw' bg={useColorModeValue('gray.200', 'green.500')}>
+        <Box w='100vw' bg={useColorModeValue('gray.200', 'gray.800')}>
             <Router>
                 <Switch>
                     <Route path='/about'>
@@ -35,7 +36,7 @@ function App(): React.ReactElement {
                     </Route>
                     <Route path='/'>
                         <NavBar navItems={NAV_ITEMS} selectedId={0} />
-                        <h2>Home</h2>
+                        <Home />
                     </Route>
                 </Switch>
             </Router>
