@@ -4,6 +4,7 @@ import { Box, useColorModeValue } from '@chakra-ui/react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import NavBar, { NavItem } from './components/nav-bar/nav-bar';
 import Home from './components/home/home';
+import GithubService from './services/github.service';
 
 const NAV_ITEMS: NavItem[] = [
     { name: 'Home', uri: '/', id: 0 },
@@ -12,6 +13,8 @@ const NAV_ITEMS: NavItem[] = [
     { name: 'Fun stuff', uri: '/fun', id: 3 },
     { name: 'Contact me', uri: '/contact', id: 4 },
 ];
+
+const GITHUB_USERNAME = 'alberthattingh';
 
 function App(): React.ReactElement {
     return (
@@ -36,7 +39,10 @@ function App(): React.ReactElement {
                     </Route>
                     <Route path='/'>
                         <NavBar navItems={NAV_ITEMS} selectedId={0} />
-                        <Home />
+                        <Home
+                            githubService={new GithubService()}
+                            username={GITHUB_USERNAME}
+                        />
                     </Route>
                 </Switch>
             </Router>
